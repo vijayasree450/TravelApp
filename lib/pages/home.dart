@@ -12,10 +12,11 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(top: 70, left: 20),
+        margin: EdgeInsets.only(top: 50, left: 20,right: 20),
         child: Column(
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,11 +30,17 @@ class _HomeState extends State<Home> {
                     
                   ],
                 ),
+                ClipRRect
+                (
+                  borderRadius: BorderRadius.circular(50),
+                  child: Image.asset("assets/girls.jpg",height: 70,width: 70,fit: BoxFit.cover,))
               ],
             ),
+            // Container()
           ],
         ),
       ),
+      
     );
   }
 }
