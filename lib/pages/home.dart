@@ -1,115 +1,3 @@
-// import 'dart:ffi';
-
-// import 'package:flutter/material.dart';
-// class Home extends StatefulWidget {
-//   const Home({super.key});
-
-//   @override
-//   State<Home> createState() => _HomeState();
-// }
-
-
-// class _HomeState extends State<Home> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: const Color(0xFFEFEFEF),
-//       body: Container(
-//         margin: EdgeInsets.only(top: 50, left: 20,right: 20),
-//         child: Column(
-//           crossAxisAlignment: CrossAxisAlignment.start,
-//           children: [
-//             Row(
-//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//               children: [
-                
-//                 Column(
-//                   crossAxisAlignment: CrossAxisAlignment.start,
-//                   children: [
-//                     Text("Hello, Vanesa",
-//                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,color: Colors.black54
-                    
-//                     ),
-//                     ),
-//                     Text("Welcome to TripGlide",style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal,color: Colors.black54),)
-                    
-//                   ],
-//                 ),
-//                 ClipRRect
-//                 (
-//                   borderRadius: BorderRadius.circular(50),
-//                   child: Image.asset("assets/girls.jpg",height: 70,width: 70,fit: BoxFit.cover,))
-//               ],
-//             ),
-//             SizedBox(height: 30,),
-//             Row(
-//               children: [
-//                 Expanded(
-//                   child:
-//                 Container(
-//                   // width: MediaQuery.of(context).size.width,
-//                   padding: EdgeInsets.only(left: 20),
-//                   decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(10)),
-//                   child: Center(
-//                     child: TextField(
-//                       decoration: InputDecoration(
-//                         border: InputBorder.none,suffixIcon: Icon(Icons.search,color: Colors.black54,),
-//                         hintText: "Search location......",
-//                         contentPadding: EdgeInsets.symmetric(horizontal: 20,vertical: 15)
-                        
-//                       ),
-//                     ),
-//                   ),
-//                 ),
-//                 ),
-//                 // SizedBox(width: 10,),
-//                 // Container(
-//                 //   padding: EdgeInsets.all(10),
-//                 //   decoration: BoxDecoration(
-//                 //     // color: Colors.black,
-                    
-//                 //     borderRadius: BorderRadius.circular(60),),
-//                 //   child: Image.asset(
-//                 //     "assets/2.jpg",
-//                 //     height: 30,
-//                 //     width: 30,
-//                 //     color: Colors.white,),
-//                 // )
-//               ],
-//             ),
-//             SizedBox(height: 20,),
-//             Text("Selected your next trip",
-//             style: TextStyle(
-//               fontSize: 20,
-//             fontWeight: FontWeight.bold,
-//             color: Colors.black54),),
-
-//            SizedBox(height: 120,),
-//             Container(
-//               child: ListView(
-//                 scrollDirection: Axis.horizontal,
-//                 children: [
-//                   Container(
-//                     width: 100,
-//                     decoration: BoxDecoration(color: Colors.white),
-//                     alignment: Alignment.center,
-//                     child: 
-//                   Text("Asia",
-//                   style: TextStyle(
-//                     fontSize: 18,
-//                     fontWeight: FontWeight.normal,
-//                     color: Colors.black54),),)
-//                 ],
-//               ))
-            
-//           ],
-//         ),
-//       ),
-      
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -120,6 +8,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  bool asia = false;
+  bool europe = false;
+  bool america = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -129,7 +21,8 @@ class _HomeState extends State<Home> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// Top Row
+
+            /// TOP SECTION
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -168,7 +61,7 @@ class _HomeState extends State<Home> {
 
             const SizedBox(height: 30),
 
-            /// Search Bar
+            /// SEARCH
             Row(
               children: [
                 Expanded(
@@ -199,7 +92,7 @@ class _HomeState extends State<Home> {
 
             const SizedBox(height: 20),
 
-         
+            /// TITLE
             const Text(
               "Select your next trip",
               style: TextStyle(
@@ -211,61 +104,132 @@ class _HomeState extends State<Home> {
 
             const SizedBox(height: 20),
 
+            /// CONTINENT SELECT
             SizedBox(
               height: 50,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  Container(
-                    width: 100,
-                    margin: const EdgeInsets.only(right: 10),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    alignment: Alignment.center,
-                    child: const Text(
-                      "Asia",
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.black54,
+
+                  /// ASIA
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        asia = true;
+                        europe = false;
+                        america = false;
+                      });
+                    },
+                    child: Container(
+                      width: 100,
+                      margin: const EdgeInsets.only(right: 10),
+                      decoration: BoxDecoration(
+                        color: asia ? Colors.black : Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Asia",
+                        style: TextStyle(
+                          color: asia ? Colors.white : Colors.black54,
+                          fontSize: 18,
+                        ),
                       ),
                     ),
                   ),
-                  Container(
-                    width: 100,
-                    margin: const EdgeInsets.only(right: 10),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    alignment: Alignment.center,
-                    child: const Text(
-                      "Europe",
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.black54,
+
+                  /// EUROPE
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        asia = false;
+                        europe = true;
+                        america = false;
+                      });
+                    },
+                    child: Container(
+                      width: 100,
+                      margin: const EdgeInsets.only(right: 10),
+                      decoration: BoxDecoration(
+                        color: europe ? Colors.black : Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Europe",
+                        style: TextStyle(
+                          color: europe ? Colors.white : Colors.black54,
+                          fontSize: 18,
+                        ),
                       ),
                     ),
                   ),
-                  Container(
-                    width: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    alignment: Alignment.center,
-                    child: const Text(
-                      "America",
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.black54,
+
+                  /// AMERICA
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        asia = false;
+                        europe = false;
+                        america = true;
+                      });
+                    },
+                    child: Container(
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: america ? Colors.black : Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "America",
+                        style: TextStyle(
+                          color: america ? Colors.white : Colors.black54,
+                          fontSize: 18,
+                        ),
                       ),
                     ),
                   ),
                 ],
               ),
             ),
+
+            const SizedBox(height: 20),
+
+            /// IMAGE CARD
+            Center(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(30),
+                child: Stack(
+                  children: [
+                    Image.asset(
+                      "assets/balii.jpg",
+                      height: 400,
+                      width: 350,
+                      fit: BoxFit.cover,
+                    ),
+
+                    Positioned(
+                      top: 15,
+                      right: 15,
+                      child: Container(
+                        padding: const EdgeInsets.all(6),
+                        decoration: const BoxDecoration(
+                          color: Colors.black54,
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Icon(
+                          Icons.favorite_outline,
+                          color: Colors.white,
+                          size: 24,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
           ],
         ),
       ),
