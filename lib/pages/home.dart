@@ -165,7 +165,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
 
-                  /// AMERICA
+                  /// SOUTH AMERICA
                   GestureDetector(
                     onTap: () {
                       setState(() {
@@ -175,14 +175,14 @@ class _HomeState extends State<Home> {
                       });
                     },
                     child: Container(
-                      width: 100,
+                      width: 150,
                       decoration: BoxDecoration(
                         color: america ? Colors.black : Colors.white,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       alignment: Alignment.center,
                       child: Text(
-                        "America",
+                        "South America",
                         style: TextStyle(
                           color: america ? Colors.white : Colors.black54,
                           fontSize: 18,
@@ -202,6 +202,7 @@ class _HomeState extends State<Home> {
                 borderRadius: BorderRadius.circular(30),
                 child: Stack(
                   children: [
+
                     Image.asset(
                       "assets/balii.jpg",
                       height: 400,
@@ -209,6 +210,23 @@ class _HomeState extends State<Home> {
                       fit: BoxFit.cover,
                     ),
 
+                    /// GRADIENT OVERLAY
+                    Positioned.fill(
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Colors.transparent,
+                              Colors.black54,
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    /// FAVORITE ICON
                     Positioned(
                       top: 15,
                       right: 15,
@@ -225,6 +243,63 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                     ),
+
+                    /// COUNTRY NAME
+                    Positioned(
+                      bottom: 120,
+                      left: 20,
+                      child: Text(
+                        "Brazil",
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+
+                    /// CONTINENT NAME
+                    Positioned(
+                      bottom: 90,
+                      left: 20,
+                      child: Text(
+                        "South America",
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        
+                      ),
+                    ),
+                    Positioned(
+                    bottom: 20,
+                    right: 20,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            "See More",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          SizedBox(width: 5),
+                          Icon(Icons.arrow_forward, size: 18),
+                        ],
+                      ),
+                    ),
+                  ),
+                                      
+
                   ],
                 ),
               ),
