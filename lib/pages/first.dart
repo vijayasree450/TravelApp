@@ -28,16 +28,18 @@ class _DetailpageState extends State<Detailpage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      height: 60,
-                      width: 60,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),),
-                        child: const Icon(Icons.arrow_back),
-                     
+                    IconButton(
+            onPressed: () {
+                 Navigator.pop(context);
+                    },
+                      
+                icon: Icon(Icons.arrow_back_outlined,
+                
+                
+                ),
+                color: Colors.white,
+                ),
                     
-                    ),
                     SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.all(20.10),
@@ -58,6 +60,10 @@ class _DetailpageState extends State<Detailpage> {
                   
                   ],
                 ),
+
+
+
+                
               ),
             ),
                   ],
@@ -105,7 +111,7 @@ class _DetailpageState extends State<Detailpage> {
                     ),
                     SizedBox(height: 10),
                      
-                   Text("Lorem ipsum dolor sit amet, consectetur adipiscing elitSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.", style: TextStyle(fontSize: 16, color: const Color.fromARGB(255, 73, 70, 70)),),
+                   Text("Lorem ipsum dolor sit amet, consectetur adipiscing elitSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.", style: TextStyle(fontSize: 16, color: const Color.fromARGB(255, 73, 70, 70)),),
                   SizedBox(height: 10),
                   Text("Read more...", style: TextStyle(decoration: TextDecoration.underline,fontSize: 16, color: Colors.blue),),
                   Row(
@@ -119,12 +125,51 @@ class _DetailpageState extends State<Detailpage> {
                         ),
                       ),
                       SizedBox(width: 10),
-                       Text("See More....", style: TextStyle(decoration: TextDecoration.underline,  fontSize: 16, color: Colors.blue),),
+                       Text("See All..", style: TextStyle(decoration: TextDecoration.underline,  fontSize: 16, color: Colors.blue),),
                     ],
                   ),
-                  ListView(children: [
-                    
-                  ],)
+                  SizedBox(height: 10),
+                  Container(
+                    height: 200,
+                    child:   ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 5, offset: Offset(0, 3))]),
+                      child: Row(
+                        children: [
+                          Column(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadiusGeometry.circular(20),
+                                
+                                child: Image.asset("assets/france.jpg", height: 100, width: 150, fit: BoxFit.cover)),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text("Iconic France", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                                Text("8 days * from \*500/person", style: TextStyle( fontSize: 14, color: Colors.grey),),
+                          
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(Icons.star, color: Colors.orange, size: 20,),
+                                    Text("4.5", style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
+                                    SizedBox(width: 5),
+                                    Text(" (100 reviews)", style: TextStyle(fontSize: 12, color: Colors.grey),)
+                                  ],
+                                ),
+
+                            ],
+                          ),
+                          
+                        ],
+                      ),)
+                    ],
+                  ),
+
+                  ),
                   ],
 
                 ),
