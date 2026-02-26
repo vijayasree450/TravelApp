@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travelappp/services/support_widget.dart';
 
+
 class Detailpage extends StatefulWidget {
   const Detailpage({super.key});
 
@@ -40,8 +41,9 @@ class _DetailpageState extends State<Detailpage> {
                 color: Colors.white,
                 ),
                     
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
             Padding(
+             
               padding: const EdgeInsets.all(20.10),
               child: Container(
                 child: Row(
@@ -49,20 +51,18 @@ class _DetailpageState extends State<Detailpage> {
                     Container(
                       height: 60,
                       width: 60,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),),
-                        child: const Icon(Icons.favorite_outline),
+                      // decoration: BoxDecoration(
+                      //   color: Colors.white,
+                      //   // borderRadius: BorderRadius.circular(10),
+                        
+                      //   ),
+                        child: const Icon(Icons.favorite_outline,color: Colors.white,),
                      
                     
                     ),
 
-                  
                   ],
                 ),
-
-
-
                 
               ),
             ),
@@ -160,20 +160,124 @@ class _DetailpageState extends State<Detailpage> {
                                     Text(" (100 reviews)", style: TextStyle(fontSize: 12, color: Colors.grey),)
                                   ],
                                 ),
-
                             ],
                           ),
                           
                         ],
-                      ),)
+                      ),),
+
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 5, offset: Offset(0, 3))]),
+                      child: Row(
+                        children: [
+                          Column(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadiusGeometry.circular(20),
+                                
+                                child: Image.asset("assets/balii.jpg", height: 100, width: 150, fit: BoxFit.cover)),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text("Iconic Bali", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                                Text("5 days * from \*500/person", style: TextStyle( fontSize: 14, color: Colors.grey),),
+                          
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(Icons.star, color: Colors.orange, size: 20,),
+                                    Text("3.9", style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
+                                    SizedBox(width: 5),
+                                    Text(" (99 reviews)", style: TextStyle(fontSize: 12, color: Colors.grey),)
+                                  ],
+                                ),
+                            ],
+                          ),
+                          
+                        ],
+                      ),),
+
+                      
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 5, offset: Offset(0, 3))]),
+                      child: Row(
+                        children: [
+                          Column(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadiusGeometry.circular(20),
+                                
+                                child: Image.asset("assets/thali.jpg", height: 100, width: 150, fit: BoxFit.cover)),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text("Iconic Thali", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                                Text("10days * from \*500/person", style: TextStyle( fontSize: 14, color: Colors.grey),),
+                          
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(Icons.star, color: Colors.orange, size: 20,),
+                                    Text("4.8", style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
+                                    SizedBox(width: 5),
+                                    Text(" (199 reviews)", style: TextStyle(fontSize: 12, color: Colors.grey),)
+                                  ],
+                                ),
+                            ],
+                          ),
+                          
+                        ],
+                      ),),
+
+
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 5, offset: Offset(0, 3))]),
+                      child: Row(
+                        children: [
+                          Column(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadiusGeometry.circular(20),
+                                
+                                child: Image.asset("assets/koriya.jpg", height: 100, width: 150, fit: BoxFit.cover)),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text("Iconic korea", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                                Text("15 days * from \*250/person", style: TextStyle( fontSize: 14, color: Colors.grey),),
+                          
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(Icons.star, color: Colors.orange, size: 20,),
+                                    Text("4.5", style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
+                                    SizedBox(width: 5),
+                                    Text(" (15 reviews)", style: TextStyle(fontSize: 12, color: Colors.grey),)
+                                  ],
+                                ),
+                            ],
+                          ),
+                          
+                        ],
+                      ),),
+
+
+
                     ],
                   ),
 
                   ),
                   ],
+                
 
                 ),
               ),
+
+
+              
             
           ],
         ),

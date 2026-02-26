@@ -1,7 +1,10 @@
 
+
+
 import 'package:flutter/material.dart';
 import 'package:travelappp/pages/first.dart';
-
+import 'package:travelappp/pages/cart.dart';
+import 'package:travelappp/pages/fava.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -11,159 +14,32 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   bool asia = true;
   bool europe = false;
   bool america = false;
-
   bool isFavorite = false;
 
-  int currentIndex = 0; // bottom nav index
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFEFEFEF),
 
-      body: SingleChildScrollView(
-        child: Container(
-          margin: const EdgeInsets.only(top: 50, left: 20, right: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-
-              /// TOP SECTION
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "Hello, Vanesa",
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black54,
-                        ),
+      body: currentIndex == 0
+          ? buildHomeContent()
+          : currentIndex == 1
+              ? const FavoritePage()
+              : currentIndex == 2
+                  ? const CartPage()
+                  : const Center(
+                      child: Text(
+                        "Profile Page",
+                        style: TextStyle(fontSize: 25),
                       ),
-                      SizedBox(height: 5),
-                      Text(
-                        "Welcome to TripGlide",
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.black54,
-                        ),
-                      ),
-                    ],
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(50),
-                    child: Image.asset(
-                      "assets/girls.jpg",
-                      height: 70,
-                      width: 70,
-                      fit: BoxFit.cover,
                     ),
-                  ),
-                ],
-              ),
 
-              const SizedBox(height: 30),
-
-              /// SEARCH
-              Container(
-                padding: const EdgeInsets.only(left: 20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: const TextField(
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    suffixIcon: Icon(Icons.search),
-                    hintText: "Search location...",
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 20),
-
-              const Text(
-                "Select your next trip",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black54,
-                ),
-              ),
-
-              const SizedBox(height: 20),
-
-              /// CONTINENT BUTTONS
-              SizedBox(
-                height: 50,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-
-                    buildButton("Asia", asia, () {
-                      setState(() {
-                        asia = true;
-                        europe = false;
-                        america = false;
-                        isFavorite = false;
-                      });
-                    }),
-
-                    buildButton("Europe", europe, () {
-                      setState(() {
-                        asia = false;
-                        europe = true;
-                        america = false;
-                        isFavorite = false;
-                      });
-                    }),
-
-                    buildButton("South America", america, () {
-                      setState(() {
-                        asia = false;
-                        europe = false;
-                        america = true;
-                        isFavorite = false;
-                      });
-                    }),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 30),
-
-              if (asia)
-                buildTripCard(
-                  image: "assets/balii.jpg",
-                  title: "Bali",
-                  subtitle: "Indonesia",
-                ),
-
-              if (europe)
-                buildTripCard(
-                  image: "assets/france.jpg",
-                  title: "France",
-                  subtitle: "Europe",
-                ),
-
-              if (america)
-                buildTripCard(
-                  image: "assets/brazil.jpg",
-                  title: "Brazil",
-                  subtitle: "South America",
-                ),
-            ],
-          ),
-        ),
-      ),
-
-      /// ✅ BOTTOM NAVIGATION
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (index) {
@@ -196,7 +72,148 @@ class _HomeState extends State<Home> {
     );
   }
 
-  /// BUTTON
+
+  Widget buildHomeContent() {
+    return SingleChildScrollView(
+      child: Container(
+        margin: const EdgeInsets.only(top: 50, left: 20, right: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+
+            /// TOP SECTION
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      "Hello, Vanesa",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black54,
+                      ),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      "Welcome to TripGlide",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black54,
+                      ),
+                    ),
+                  ],
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(50),
+                  child: Image.asset(
+                    "assets/girls.jpg",
+                    height: 70,
+                    width: 70,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 30),
+
+            /// SEARCH
+            Container(
+              padding: const EdgeInsets.only(left: 20),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: const TextField(
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  suffixIcon: Icon(Icons.search),
+                  hintText: "Search location...",
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            const Text(
+              "Select your next trip",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.black54,
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            /// CONTINENT BUTTONS
+            SizedBox(
+              height: 50,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+
+                  buildButton("Asia", asia, () {
+                    setState(() {
+                      asia = true;
+                      europe = false;
+                      america = false;
+                      isFavorite = true;
+                    });
+                  }),
+
+                  buildButton("Europe", europe, () {
+                    setState(() {
+                      asia = false;
+                      europe = true;
+                      america = false;
+                      isFavorite = false;
+                    });
+                  }),
+
+                  buildButton("South America", america, () {
+                    setState(() {
+                      asia = false;
+                      europe = false;
+                      america = true;
+                      isFavorite = false;
+                    });
+                  }),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 30),
+
+            if (asia)
+              buildTripCard(
+                image: "assets/balii.jpg",
+                title: "Bali",
+                subtitle: "Indonesia",
+              ),
+
+            if (europe)
+              buildTripCard(
+                image: "assets/france.jpg",
+                title: "France",
+                subtitle: "Europe",
+              ),
+
+            if (america)
+              buildTripCard(
+                image: "assets/brazil.jpg",
+                title: "Brazil",
+                subtitle: "South America",
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget buildButton(String text, bool isSelected, VoidCallback onTap) {
     return GestureDetector(
       onTap: onTap,
@@ -219,7 +236,6 @@ class _HomeState extends State<Home> {
     );
   }
 
-  /// TRIP CARD
   Widget buildTripCard({
     required String image,
     required String title,
@@ -258,9 +274,13 @@ class _HomeState extends State<Home> {
               child: GestureDetector(
                 onTap: () {
                   setState(() {
-                    isFavorite = !isFavorite;
+                    isFavorite = true;
+                     currentIndex = 1;
                   });
                 },
+                  
+
+
                 child: Container(
                   padding: const EdgeInsets.all(6),
                   decoration: const BoxDecoration(
@@ -271,8 +291,7 @@ class _HomeState extends State<Home> {
                     isFavorite
                         ? Icons.favorite
                         : Icons.favorite_border,
-                    color:
-                        isFavorite ? Colors.red : Colors.white,
+                    color: isFavorite ? Colors.red : Colors.white,
                   ),
                 ),
               ),
@@ -303,45 +322,47 @@ class _HomeState extends State<Home> {
               ),
             ),
 
-           Positioned(
-  bottom: 20,
-  right: 20,
-  child: GestureDetector(
-    onTap: () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const Detailpage(),
-        ),
-      );
-    },
-    child: Container(
-      padding: const EdgeInsets.symmetric(
-          horizontal: 15, vertical: 8),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: const [
-          Text(
-            "See More",
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
+            Positioned(
+              bottom: 20,
+              right: 20,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Detailpage(),
+                    ),
+                  );
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 15, vertical: 8),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const [
+                      Text(
+                        "See More",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      SizedBox(width: 5),
+                      Icon(Icons.arrow_forward, size: 18),
+                    ],
+                  ),
+                ),
+              ),
             ),
-          ),
-          SizedBox(width: 5),
-          Icon(Icons.arrow_forward, size: 18),
-        ],
-      ),
-    ),
-  ),
-),
           ],
         ),
       ),
     );
   }
 }
+
+

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:travelappp/pages/home.dart';
+import 'package:travelappp/pages/first.dart';
 
 void main() {
   runApp(const MyApp());
