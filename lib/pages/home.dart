@@ -1,10 +1,9 @@
 
-
-
 import 'package:flutter/material.dart';
 import 'package:travelappp/pages/first.dart';
 import 'package:travelappp/pages/cart.dart';
 import 'package:travelappp/pages/fava.dart';
+import 'package:travelappp/pages/profile.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -33,13 +32,7 @@ class _HomeState extends State<Home> {
               ? const FavoritePage()
               : currentIndex == 2
                   ? const CartPage()
-                  : const Center(
-                      child: Text(
-                        "Profile Page",
-                        style: TextStyle(fontSize: 25),
-                      ),
-                    ),
-
+                  : const ProfilePage(),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (index) {
