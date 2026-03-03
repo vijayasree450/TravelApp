@@ -39,7 +39,7 @@ class ProfilePage extends StatelessWidget {
                     const SizedBox(height: 10),
 
                     const Text(
-                      "Arvind Limba",
+                      "Vanesa",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
